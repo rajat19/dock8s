@@ -10,6 +10,11 @@ kubectl apply -f client-node-port.yaml
 kubectl apply -f client-deployment.yaml
 ```
 
+To start all services from configs in some particular folder
+```shell
+kubectl apply -f my_folder
+```
+
 ### Print status
 ```shell
 kubectl get pods

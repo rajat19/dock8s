@@ -20,7 +20,7 @@
 
 | Service      | Definition                                                              |
 |--------------|-------------------------------------------------------------------------|
-| ClusterIP    ||
+| ClusterIP    | Exposes a set of pods to other objects in the cluster                   |
 | NodePort     | Exposes a container to the outside world (only good for dev purposes!!) |
 | LoadBalancer ||
 | Ingress      ||
@@ -87,3 +87,12 @@ spec:
 ```
 - template: similar to pod spec
 - replicas: no. of different pods it has to make, running exact template
+
+---
+### Volumes (K8s)
+
+Volume: An object that allow a container to store data at the pod level.
+
+_Note: Not exactly the same thing as a Docker volume_
+
+A persistent volume is stored outside the pod, and if the pod is even deleted, then also a new pod will be able to access existing data
