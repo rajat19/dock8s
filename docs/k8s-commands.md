@@ -96,3 +96,28 @@ This results in something similar (for local)
 NAME                 PROVISIONER          RECLAIMPOLICY   VOLUMEBINDINGMODE   ALLOWVOLUMEEXPANSION   AGE
 hostpath (default)   docker.io/hostpath   Delete          Immediate           false                  6d
 ```
+
+### Creating a secret file
+```
+kubectl create secret generic <SECRET_NAME> --from-literal key=value
+```
+- **create** - Imperative command to create a new object
+- **secret** - Type of object we are going to create
+- **generic** - Type of secret
+- **<SECRET_NAME>** - Name of secret for later reference in a pod config
+- **--from-literal** - We are going to add the secret info int this command, as opposed to from a file
+- **key=value** - Key-value pair of secret information
+
+Example:
+```shell
+kubectl create secret generic pgpassword --from-literal PG_PASSWORD=12345
+```
+
+To see secrets list
+```shell
+kubectl get secrets
+```
+```
+NAME         TYPE     DATA   AGE
+pgpassword   Opaque   1      9s
+```

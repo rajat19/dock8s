@@ -15,6 +15,7 @@
 | Pods        | Runs one or more closely related containers                                                                    |
 | Services    | Sets up networking in a kubernetes cluster                                                                     |
 | Deployment  | Maintains a set of identical pods, ensuring that they have the correct config and that the right number exists |
+| Secrets     | Securely stores a piece of information in the cluster, such as a database password                             |
 
 ### Service Object Types
 
@@ -110,3 +111,11 @@ Volume: An object that allow a container to store data at the pod level.
 _Note: Not exactly the same thing as a Docker volume_
 
 A persistent volume is stored outside the pod, and if the pod is even deleted, then also a new pod will be able to access existing data
+
+#### PVC AccessModes
+
+| Access Modes  | Description                              |
+|---------------|------------------------------------------|
+| ReadWriteOnce | Can be used by a single node             |
+| ReadOnlyMany  | Multiple nodes can read from this        |
+| ReadWriteMany | Can be read and written to by many nodes |
