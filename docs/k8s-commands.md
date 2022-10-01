@@ -83,3 +83,16 @@ docker push evilninja/dock8s-multi-client:v2
 ```shell
 kubectl set image deployment/client-deployment client=evilninja/dock8s-multi-client:v2
 ```
+
+### Storage class
+
+To get storage class details
+```shell
+ kubectl get storageclass
+```
+
+This results in something similar (for local)
+```
+NAME                 PROVISIONER          RECLAIMPOLICY   VOLUMEBINDINGMODE   ALLOWVOLUMEEXPANSION   AGE
+hostpath (default)   docker.io/hostpath   Delete          Immediate           false                  6d
+```
