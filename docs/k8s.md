@@ -23,8 +23,8 @@
 |--------------|-------------------------------------------------------------------------|
 | ClusterIP    | Exposes a set of pods to other objects in the cluster                   |
 | NodePort     | Exposes a container to the outside world (only good for dev purposes!!) |
-| LoadBalancer ||
-| Ingress      ||
+| LoadBalancer | Legacy way of getting network traffic into a cluster                    |
+| Ingress      | Exposes a set of services to the outside world                          |
 
 ---
 ### Files
