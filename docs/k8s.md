@@ -88,6 +88,20 @@ spec:
 - template: similar to pod spec
 - replicas: no. of different pods it has to make, running exact template
 
+#### PersistentVolumeClaim file
+```yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: database-persistent-volume-claim
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
+```
+
 ---
 ### Volumes (K8s)
 
