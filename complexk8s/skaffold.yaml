@@ -1,0 +1,43 @@
+apiVersion: skaffold/v2beta12
+kind: Config
+deploy:
+  kubectl:
+    manifests:
+      # don't add persistent services like database
+      - ./k8s/client-deployment.yaml
+      - ./k8s/server-deployment.yaml
+      - ./k8s/worker-deployment.yaml
+      - ./k8s/client-cluster-ip-service.yaml
+      - ./k8s/client-cluster-ip-service.yaml
+build:
+  local:
+    push: false
+  artifacts:
+    - image: evilninja/dock8s-multi-client
+      context: client
+      docker:
+        dockerfile: Dockerfile.dev
+      sync:
+        manual:
+          - src: 'src/**/*.js'
+            dest: .
+          - src: 'src/**/*.css'
+            dest: .
+          - src: 'src/**/*.html'
+            dest: .
+    - image: evilninja/dock8s-multi-worker
+      context: worker
+      docker: 
+        dockerfile: Dockerfile.dev
+      sync:
+        manual:
+          - src: '*.js'
+            dest: .
+    - image: evilninja/dock8s-multi-server
+      context: server
+      docker:
+        dockerfile: Dockerfile.dev
+      sync:
+        manual:
+          - src: '*.js'
+            dest: .
